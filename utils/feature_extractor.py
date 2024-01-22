@@ -1,5 +1,4 @@
 import cv2
-import os
 import numpy as np
 from skimage.filters.rank import entropy
 from skimage.morphology import square
@@ -35,7 +34,7 @@ class featureExtractor(object):
                 matrixInds[0:current_scale - i - 1, i] = 2
             else:
                 matrixInds[int(current_scale - ((current_scale - 1) / 2) - i - 1): int(current_scale - i - 1),
-                i] = 2;
+                i] = 2
         matrixInds[0, 0] = 3
         self.__freqBands.append(matrixInds)
 

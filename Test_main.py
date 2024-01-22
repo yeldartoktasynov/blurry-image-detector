@@ -56,17 +56,17 @@ def is_image_blurry(trained_model, img, threshold=0.5):
     return(prediction)
 
 if __name__ == '__main__':
-    trained_model = torch.load('./trained_model/trained_model')
+    trained_model = torch.load('./trained_model/trained_model1')
     trained_model = trained_model['model_state']
 
-    dataset_dir = './dataset/defocused_blurred/'
+    dataset_dir = '/home/yeldar/Documents/bluriness/data/verified'
     accuracy_blurry_images = run_testing_on_dataset(trained_model, dataset_dir, GT_blurry = True)
 
-    dataset_dir = './dataset/sharp/'
+    dataset_dir = '/home/yeldar/Documents/bluriness/data/normal'
     accuracy_sharp_images = run_testing_on_dataset(trained_model, dataset_dir, GT_blurry = False)
 
-    dataset_dir = './dataset/motion_blurred/'
-    accuracy_motion_blur_images = run_testing_on_dataset(trained_model, dataset_dir, GT_blurry=True)
+    # dataset_dir = './dataset/motion_blurred/'
+    # accuracy_motion_blur_images = run_testing_on_dataset(trained_model, dataset_dir, GT_blurry=True)
 
     print("========================================")
     print('Test accuracy on blurry forlder = ')
@@ -75,5 +75,5 @@ if __name__ == '__main__':
     print('Test accuracy on sharp forlder = ')
     print(accuracy_sharp_images)
 
-    print('Test accuracy on motion blur forlder = ')
-    print(accuracy_motion_blur_images)
+    # print('Test accuracy on motion blur forlder = ')
+    # print(accuracy_motion_blur_images)
